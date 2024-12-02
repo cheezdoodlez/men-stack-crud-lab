@@ -1,0 +1,45 @@
+<!-- views/fruits/new.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat Drop Off</title>
+  </head>
+  <body>
+    <h1>Revise the info for this cat...lies were told...</h1>
+    <form action="/cats/<%= cat._id %>?_method=PUT" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="<%= cat.name %>"/>
+
+        <label for="breed">Breed:</label>
+        <input type="text" name="breed" id="breed" value="<%= cat.breed %>"/>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" value="<%= cat.age%>"/>
+
+        <label for="dangerLevel">Danger Level:</label>
+        <select name="dangerLevel" id="dangerLevel">
+          <option value="1">1 -Good boy/girl</option>
+          <option value="2">2 -Slightly mischevious</option>
+          <option value="3">3 -Will poop in plants</option>
+          <option value="4">4 -Completely rogue</option>
+          <option value="5">5 -Is plotting your death</option>
+          <option value="6">6 -Makes attempt on your life </option>
+          <option value="7">7 -Will take over town</option>
+          <option value="8">8 -Nuke level threat</option>
+          <option value="9">9 -Will end world</option>
+          <option value="10">10 -Destroyer of planets</option>
+        </select>
+
+        <label for="isSleepyGuy">Are they a sleepy lil guy?</label>
+        <input type="checkbox" name="isSleepyGuy" id="isSleepyGuy" <% if (cat.isSleepyGuy) { %>checked<%}%> />
+
+        <button type="submit">Lies Fixed</button>
+    </form>
+    <a href="/">Home</a>
+    <a href="/cats">Adopt a cat</a>
+
+  </body>
+</html>

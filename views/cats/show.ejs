@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= cat.name%></title>
+</head>
+<body>
+    <h1><%= cat.name %></h1>
+    <% if (cat.isSleepyGuy) { %>
+        <p> This cat is indeed a sleepy lil guy :D</p>
+    <%} else { %>
+        <p>This cat is not sleepy. BE CAREFUL D:<</p>
+    <% } %>
+        <p>They are a "<%= cat.breed%>"!!</p>
+        <p>Been alive for "<%=cat.age%>" years!</p>
+        <p>Danger level = "<%= cat.dangerLevel%>"</p>
+    <form action = '/cats/<%= cat._id %>?_method=DELETE' method = 'POST'>
+        <button type ='submit'> "Adopt" <%= cat.name %>!</button>
+    </form>
+    <a href="/cats/<%= cat._id %>/edit"> Revise <%= cat.name %>'s info</a>
+    <a href="/">Home</a>
+    <a href="/cats">Adopt a cat</a>
+</body>
+</html>
